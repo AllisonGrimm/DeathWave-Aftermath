@@ -7,6 +7,7 @@ public class Inventory : MonoBehaviour
     private static bool gamePaused = false;
     [SerializeField] private GameObject inventoryMenu;
     [SerializeField] private InventoryManager inventoryManager;
+    [SerializeField] private Paused paused;
 
     // Update is called once per frame
     void Update()
@@ -17,7 +18,7 @@ public class Inventory : MonoBehaviour
             {
                 Resume();
             }
-            else
+            else if(!paused.isPaused)
             {
                 Pause();
             }
@@ -31,6 +32,7 @@ public class Inventory : MonoBehaviour
         inventoryMenu.SetActive(false);
         Time.timeScale = 1f;
         gamePaused = false;
+        paused.isPaused = false;
     }
 
     void Pause()
@@ -41,5 +43,6 @@ public class Inventory : MonoBehaviour
         inventoryManager.started = true;
         Time.timeScale = 0f;
         gamePaused = true;
+        paused.isPaused = true;
     }
 }

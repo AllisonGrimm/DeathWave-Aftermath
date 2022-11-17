@@ -10,9 +10,11 @@ public class EnergyRecovery : MonoBehaviour
         float restorPercent = consumable.restorePercent;//Get the amount and who is going restored to
         Stats target = consumable.target;
 
-        restoreAmount = Mathf.RoundToInt(target.hpMax * restorPercent);
+        restoreAmount = Mathf.RoundToInt(target.energyMax * restorPercent);
 
-        target.hpCurrent += restoreAmount;
+        consumable.boxText += target.memberName + " gets " + restoreAmount + " energy restored ";
+
+        target.energyCurrent += restoreAmount;
 
         if (target.energyCurrent > target.energyMax)//If it restores more than max set to max
         {

@@ -6,20 +6,27 @@ using UnityEngine.Events;
 [CreateAssetMenu(fileName = "NewEnemyStats", menuName = "Stats/EnemyStats")]
 public class EnemyStats : ScriptableObject
 {
-    //normal stats
+    [Header("Stats")]
     public string EnemyName;
     public Sprite enemySprite;
     public float hpMax;
     public int hpCurrent;
-    public float dodge;
-    public float effectRes;
+    public int dodge;
+    public int effectRes;
     public float defenceValue;
-    public float accuracy;
+    public int accuracy;
     public int speed;
     public int damMin;
     public int damMax;
 
-    //status effects
+    public int xpAmount;
+    public int monMin;
+    public int monMax;
+
+    //something about stealable thing
+    //Something about dropable items
+
+    [Header("Status Effects")]
     public bool broken;
     public int brokenStacks;
     public bool bleed;
@@ -45,15 +52,17 @@ public class EnemyStats : ScriptableObject
     public bool braced;
     public int bracedStacks;
 
-    //turn order stats
+    [Header("Battle")]
     public int currentSpeed;
     public bool hasGone;
+    public bool dead;
+    public BattleResults results;
+    public string boxText;
+    public VectorValue position;
 
-    //battle stats
     public CurrentParty party;
     public EnemyGroup group;
     public UnityEvent thisEvent; //will need to pass the current enemy stats into the event
-    //some sort of way to determine how the enemy acts in combat maybe function
    
     public void BattleFunction()//Calls the battle ai
     {

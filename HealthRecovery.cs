@@ -13,6 +13,8 @@ public class HealthRecovery : MonoBehaviour
 
         healAmount = Mathf.RoundToInt( target.hpMax * healPercent);
 
+        consumable.boxText += consumable.target.memberName + " gets " + healAmount + " health restored ";
+
         target.hpCurrent += healAmount;
 
         if(target.hpCurrent > target.hpMax)

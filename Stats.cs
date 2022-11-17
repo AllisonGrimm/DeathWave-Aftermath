@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewStats", menuName = "Stats/PlayerStats")]
 public class Stats : ScriptableObject
 {
+    [Header("Player Stats")]
     public string memberName;
     public Sprite battleSprite;
     public int level;
@@ -16,6 +17,7 @@ public class Stats : ScriptableObject
     public float energyMax;
     public int energyRegen;
     public int energyCurrent;
+    public int accuracy;
     public int power;
     public int tenacity;
     public int intellect;
@@ -29,10 +31,19 @@ public class Stats : ScriptableObject
     public float maxWeight;
     public int ammoPerShot;
     public int magSize;
+    public int magCurrent;   
+    public float damMelee;
+    public float damGun;
+    public float damTech;
+    public float damMech;
     public int damMin;
     public int damMax;
+    public int setNum;
+    public SkillList skills;
+    public int credits;
+    public bool setBonus;
 
-    //status effects
+    [Header("Status Effects")]
     public bool broken;
     public int brokenStacks;
     public bool bleed;
@@ -58,7 +69,11 @@ public class Stats : ScriptableObject
     public bool braced;
     public int bracedStacks;
 
-    //turn order stats
+    [Header("Battle")]
     public int currentSpeed;
     public bool hasGone;
+    public bool knockedOut;
+    public VectorValue position;
+    public bool freeReload;
+    public int freeReloadTurns;
 }
